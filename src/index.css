@@ -1,0 +1,79 @@
+/* CSS変数定義（Claude UIデザインシステム互換） */
+:root {
+  --color-background-primary:   #ffffff;
+  --color-background-secondary: #f8f7f4;
+  --color-background-tertiary:  #f1efe8;
+  --color-background-info:      #e6f1fb;
+  --color-background-danger:    #fcebeb;
+  --color-background-warning:   #faeeda;
+
+  --color-text-primary:   #2c2c2a;
+  --color-text-secondary: #5f5e5a;
+  --color-text-tertiary:  #888780;
+  --color-text-info:      #185fa5;
+  --color-text-danger:    #a32d2d;
+  --color-text-warning:   #854f0b;
+
+  --color-border-tertiary: rgba(44,44,42,0.15);
+  --color-border-secondary: rgba(44,44,42,0.30);
+  --color-border-primary:   rgba(44,44,42,0.40);
+  --color-border-info:    rgba(24,95,165,0.30);
+  --color-border-danger:  rgba(163,45,45,0.30);
+  --color-border-warning: rgba(133,79,11,0.30);
+
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  --font-sans: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-background-tertiary);
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+}
+
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* フォームリセット */
+input[type="text"], input[type="file"] + div, textarea {
+  font-family: var(--font-sans);
+}
+
+input:not([type="file"]):not([type="range"]):not([type="checkbox"]) {
+  height: 36px;
+  padding: 0 10px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+  outline: none;
+  width: 100%;
+}
+input:focus {
+  box-shadow: 0 0 0 2px var(--color-border-info);
+}
+
+button {
+  height: 34px;
+  padding: 0 14px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+  font-family: var(--font-sans);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover:not(:disabled) { background: var(--color-background-secondary); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
