@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+/* カード */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #0066ff;
+}
+
+input[type="file"] {
+  font-size: 0.9rem;
+}
+
+/* SP/PC ビューポートトグル */
+.viewport-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.toggle-label {
+  color: #666;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-block;
+  background: #e8f0ff;
+  color: #0052cc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+button {
+  background: #0066ff;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #0052cc;
+}
+
+/* 進捗スピナー */
+#progress-panel {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #0066ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#progress-msg {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* エラー */
+.error {
+  border-color: #ff4444;
+  max-width: 560px;
+}
+
+.error p {
+  color: #cc0000;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+#retry-btn {
+  background: #cc0000;
+}
+#retry-btn:hover {
+  background: #aa0000;
+}
+
+/* 結果サマリー */
+.result-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.result-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-download {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-download:hover {
+  background: #219150;
+}
+
+#diff-summary {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#reset-btn {
+  background: #555;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+}
+#reset-btn:hover {
+  background: #333;
+}
+
+/* 3カラムグリッド */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.image-col h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.image-col a {
+  display: block;
+}
+
+.image-col img {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+
+.image-col img:hover {
+  opacity: 0.9;
+}
+
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}

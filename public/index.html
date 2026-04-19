@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LP差分確認ツール</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>LP 差分確認ツール</h1>
+    <p class="subtitle">既存LP（URL）と変更後LP（ZIP）の差分を自動検出します</p>
+
+    <!-- 入力フォーム -->
+    <div id="form-panel" class="card">
+      <div class="field">
+        <label for="url-input">既存LP の URL</label>
+        <input
+          type="text"
+          id="url-input"
+          placeholder="https://example.com/landing-page"
+          autocomplete="off"
+        />
+        <div class="viewport-toggle">
+          <span class="toggle-label">表示サイズ：</span>
+          <label class="radio-label">
+            <input type="radio" name="existingViewport" value="sp" checked /> SP（390px）
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="existingViewport" value="pc" /> PC（1440px）
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="zip-input">変更後LP の ZIP ファイル <span class="badge">PC</span></label>
+        <p class="hint">ZIP内の構成: index.html / css/ / js/ / img/ / fonts/</p>
+        <input type="file" id="zip-input" accept=".zip" />
+      </div>
+
+      <button id="compare-btn">比較を開始</button>
+    </div>
+
+    <!-- 進捗表示 -->
+    <div id="progress-panel" class="card hidden">
+      <div class="spinner"></div>
+      <p id="progress-msg">処理中...</p>
+      <p class="hint">スクリーンショット取得と差分検出に 15〜45 秒かかります</p>
+    </div>
+
+    <!-- エラー表示 -->
+    <div id="error-panel" class="card hidden error">
+      <p id="error-msg"></p>
+      <button id="retry-btn">もう一度試す</button>
+    </div>
+
+    <!-- 結果表示 -->
+    <div id="results-panel" class="hidden">
+      <div class="result-summary">
+        <span id="diff-summary"></span>
+        <div class="result-actions">
+          <button id="download-combined" class="btn-download">
+            ⬇ 3枚まとめて保存
+          </button>
+          <button id="reset-btn">新しい比較を行う</button>
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-col">
+          <h3>既存 LP</h3>
+          <a id="link-existing" target="_blank">
+            <img id="img-existing" alt="既存LP" />
+          </a>
+        </div>
+        <div class="image-col">
+          <h3>変更後 LP</h3>
+          <a id="link-modified" target="_blank">
+            <img id="img-modified" alt="変更後LP" />
+          </a>
+        </div>
+        <div class="image-col">
+          <h3>差分（赤枠）</h3>
+          <a id="link-diff" target="_blank">
+            <img id="img-diff" alt="差分画像" />
+          </a>
+        </div>
+      </div>
+      <p class="hint center">画像をクリックするとフルサイズで開きます</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
