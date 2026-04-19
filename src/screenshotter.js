@@ -14,7 +14,15 @@ const SECTION_HEIGHT  = 3000;
  * @returns {{ textBlocks: Array<{text,x,y,w,h}> }}
  */
 async function takeScreenshot(url, outputPath, { mobile = false } = {}) {
-  const browser = await chromium.launch({ headless: true });
+  // コンテナ環境（Railway等）ではroot実行になるため --no-sandbox が必須
+  const browser = await chromium.launch({
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage', // /dev/shm が小さいコンテナ対策
+    ],
+  });
   try {
     // --- コンテキスト生成 ---
     // mobile=true のときは iPhone UA + タッチ + 390px 幅
