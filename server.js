@@ -8,7 +8,7 @@ const { takeScreenshot } = require('./src/screenshotter');
 const { runDiff, createCombinedImage } = require('./src/differ');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ディレクトリ確保
 const UPLOADS_DIR = path.join(__dirname, 'uploads');

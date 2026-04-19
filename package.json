@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "既存LPと変更後LPの差分を自動検出するローカルWebツール",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npx playwright install chromium --with-deps"
   },
   "dependencies": {
     "adm-zip": "^0.5.10",
